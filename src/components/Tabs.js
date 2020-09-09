@@ -8,7 +8,6 @@ const Tabs = () => {
 
     const context = useContext(TicketContext);
     const data = context[0].data;
-    
     let titleOutput,
         panelOutput;
 
@@ -21,7 +20,6 @@ const Tabs = () => {
 
         panelOutput = data.slice(0).reverse().map((d, i) => {
             let groups = d.tickets;
-            console.log(d.tickets);
             return(
                 <TabPanel label={i} key={i} group={groups} index={i + 1} />
             )
