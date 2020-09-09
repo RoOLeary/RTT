@@ -22,7 +22,7 @@ const TabTitle = (props) => {
                     context[1].setOpenTab(idx + 1 );
                 }}
                 data-toggle="tab"
-                href="#link3"
+                href={`#link${props.idx+1}`}
                 role="tablist"
             >
                 {props.data.title}

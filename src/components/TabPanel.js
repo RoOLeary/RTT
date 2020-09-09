@@ -12,7 +12,11 @@ const Button = styled.button`
 const TabPanel = (props) => {
     const context = useContext(TicketContext);
     //let drag = props.index - 1;
-    let tickets = context[0].data[props.label].tickets;
+    // let tickets = context[0].data[props.label].tickets;
+
+    let tickets = props.group;
+
+
     let ticketOutput = Object.entries(tickets).map((ticket, i) => {
     
     //    let couchPerks = ticket[1].couchStylePerks; 
@@ -37,7 +41,6 @@ const TabPanel = (props) => {
 
     return(
         <div className={context[1].openTab === props.index ? "block" : "hidden"} id={`link${props.index}`}>
-            <h1 style={sectionLead}>{context[0].data[props.index - 1].title}</h1>
             <ul style={listStyle}>{ticketOutput}</ul>
         </div>
     )

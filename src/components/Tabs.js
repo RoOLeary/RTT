@@ -13,14 +13,15 @@ const Tabs = () => {
         panelOutput;
 
     if(data){
-        titleOutput = data.map((d, i) => {
+        titleOutput = data.slice(0).reverse().map((d, i) => {
             return(
                 <TabTitle loop={i} data={d} color="red" idx={i} />
             )
         });
 
-        panelOutput = data.map((d, i) => {
+        panelOutput = data.slice(0).reverse().map((d, i) => {
             let groups = d.tickets;
+            console.log(d.tickets);
             return(
                 <TabPanel label={i} key={i} group={groups} index={i + 1} />
             )
