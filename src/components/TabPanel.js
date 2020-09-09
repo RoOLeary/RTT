@@ -11,31 +11,37 @@ const Button = styled.button`
 
 const TabPanel = (props) => {
     const context = useContext(TicketContext);
-    //let drag = props.index - 1;
-    // let tickets = context[0].data[props.label].tickets;
-
     let tickets = props.group;
-
-
     let ticketOutput = Object.entries(tickets).map((ticket, i) => {
-    
-    //    let couchPerks = ticket[1].couchStylePerks; 
+        let couchPerks = ticket[1].couchStylePerks; 
+        let perks = Object.entries(couchPerks).map((pk, i) => {
+            if(pk[1].perkActive){
+                return (
+                    <li key={i}>{pk[1].ticketPerk}</li>
+                )
+            } else {
+                return (
+                    <li key={i}><strike>{pk[1].ticketPerk}</strike></li>
+                )
+            }
+        });
         
-        return (
-            <li key={i}>
-                <h3><strong>{ticket[1].ticketName}</strong></h3>
-                <p>{ticket[1].ticketDescription}</p>
-                
-                <ul>
-                    <li>Perk</li>                
-                    <li>Perk</li>
-                </ul>
+            
+        
+    return (
+        <li key={i}>
+            <h3><strong>{ticket[1].ticketName}</strong></h3>
+            <p>{ticket[1].ticketDescription}</p>
+            
+            <ul>
+                {perks}
+            </ul>
 
-                <h3>{ticket[1].ticketActualPrice}</h3>
-                <Button>
-                    <a href={ticket[1].ticketButtonLink}>{ticket[1].ticketButtonLabel}</a>
-                </Button>
-            </li>
+            <h3>{ticket[1].ticketActualPrice}</h3>
+            <Button>
+                <a href={ticket[1].ticketButtonLink}>{ticket[1].ticketButtonLabel}</a>
+            </Button>
+        </li>
         );
     }); 
 

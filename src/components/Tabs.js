@@ -14,7 +14,7 @@ const Tabs = () => {
     if(data){
         titleOutput = data.slice(0).reverse().map((d, i) => {
             return(
-                <TabTitle loop={i} data={d} color="red" idx={i} />
+                <TabTitle key={i} data={d} color="red" idx={i} />
             )
         });
 
