@@ -9,6 +9,16 @@ const Button = styled.button`
   padding: 8px 16px;
 `;
 
+const listStyle = {
+    display: "flex",
+    justifyContent: "space-around"
+};
+
+const sectionLead = {
+    fontSize: "20px",
+    fontWeight: 600
+}
+
 const TabPanel = (props) => {
     const context = useContext(TicketContext);
     let tickets = props.group;
@@ -29,39 +39,34 @@ const TabPanel = (props) => {
             
         
     return (
-        <li key={i}>
-            <h3><strong>{ticket[1].ticketName}</strong></h3>
-            <p>{ticket[1].ticketDescription}</p>
-            
-            <ul>
-                {perks}
-            </ul>
+        <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
 
-            <h3>{ticket[1].ticketActualPrice}</h3>
-            <Button>
-                <a href={ticket[1].ticketButtonLink}>{ticket[1].ticketButtonLabel}</a>
-            </Button>
-        </li>
+            
+            <article className="overflow-hidden rounded-lg shadow-lg px-6 py-8">
+                <li key={i}>
+                    <h3><strong>{ticket[1].ticketName}</strong></h3>
+                    <p>{ticket[1].ticketDescription}</p>
+                    
+                    <ul>
+                        {perks}
+                    </ul>
+
+                    <h3>{ticket[1].ticketActualPrice}</h3>
+                    <Button>
+                        <a href={ticket[1].ticketButtonLink}>{ticket[1].ticketButtonLabel}</a>
+                    </Button>
+                </li>
+            </article>
+
+        </div>
         );
     }); 
 
     return(
         <div className={context[1].openTab === props.index ? "block" : "hidden"} id={`link${props.index}`}>
-            <ul style={listStyle}>{ticketOutput}</ul>
+            <ul style={listStyle} className="md:flex-column">{ticketOutput}</ul>
         </div>
     )
 }
-
-
-const listStyle = {
-    display: "flex",
-    justifyContent: "space-around"
-};
-
-const sectionLead = {
-    fontSize: "20px",
-    fontWeight: 600
-}
-
 
 export default TabPanel;

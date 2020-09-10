@@ -6,6 +6,7 @@ import '../App.css';
 
 import { TicketContextProvider } from '../contexts/TicketContext';
 import { Loader } from './icons';
+import Blort from './Blort';
 import Tabs from './Tabs';
 
 import '../tailwind.output.css';
@@ -91,6 +92,7 @@ function App() {
       {loading ? <LoaderIcon /> :
       <TicketContextProvider data={data} >
           <Tabs color="red" />
+          <Blort />
       </TicketContextProvider>
       }
     </div>
