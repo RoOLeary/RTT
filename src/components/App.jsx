@@ -88,14 +88,14 @@ function App() {
   useEffect(() => fetchData(), [fetchData]);
 
   return (
-      <div>
-          {loading ? "LOADING" :
-          <TicketContextProvider data={data} className="o-wrapper interstatialTickets">
-              <Tabs color="teal" />
-          </TicketContextProvider>
-          }
-      </div>
-    );
+      <>
+        {loading ? "LOADING" :
+        <TicketContextProvider data={data} className="o-wrapper interstatialTickets">
+            <Tabs color="teal" />
+        </TicketContextProvider>
+        }
+      </>
+  );
 }
 
 export default App;
