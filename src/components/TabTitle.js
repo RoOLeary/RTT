@@ -26,7 +26,7 @@ const TabTitle = (props) => {
                 href={`#link${props.idx+1}`}
                 role="tablist"
             >
-                {props.data.title}
+                {props.data.title} 
             </a>
         </li>
     )
