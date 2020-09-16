@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components';
 
 import '../App.css';
 import { TicketContextProvider } from '../contexts/TicketContext';
-import { Loader } from './icons';
+// import { Loader } from './icons';
 import Tabs from './Tabs';
 
 import '../tailwind.output.css';
