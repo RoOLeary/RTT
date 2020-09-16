@@ -22,13 +22,6 @@ const spin = keyframes`
   }
 `;
 
-const LoaderIcon = styled(Loader)`
-  display: block;
-  margin: 0 auto;
-  width: 48px;
-  animation: ${spin} 1s infinite ease-in-out;
-`;
-
 // const View = styled(motion.div)`
 //   background: #fff;
 //   color: #000;
@@ -96,7 +89,7 @@ function App() {
 
   return (
       <div>
-          {loading ? <LoaderIcon /> :
+          {loading ? "LOADING" :
           <TicketContextProvider data={data} className="o-wrapper interstatialTickets">
               <Tabs color="teal" />
           </TicketContextProvider>
