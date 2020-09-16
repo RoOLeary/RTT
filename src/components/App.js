@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, useState } from 'react';
+import React, { Fragment, useEffect, useCallback, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 
 import '../App.css';
@@ -88,14 +88,14 @@ function App() {
   useEffect(() => fetchData(), [fetchData]);
 
   return (
-      <>
+      <Fragment>
         {loading ? "LOADING" :
         <TicketContextProvider data={data} className="o-wrapper interstatialTickets">
             <Tabs color="teal" />
         </TicketContextProvider>
         }
-      </>
-  );
+      </Fragment>
+    );
 }
 
 export default App;
