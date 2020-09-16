@@ -1,12 +1,9 @@
 import React, { useEffect, useCallback, useState } from 'react';
-import { motion } from 'framer-motion';
 import styled, { keyframes } from 'styled-components';
 
 import '../App.css';
-
 import { TicketContextProvider } from '../contexts/TicketContext';
 import { Loader } from './icons';
-import Blort from './Blort';
 import Tabs from './Tabs';
 
 import '../tailwind.output.css';
@@ -32,34 +29,44 @@ const LoaderIcon = styled(Loader)`
   animation: ${spin} 1s infinite ease-in-out;
 `;
 
-const View = styled(motion.div)`
-  background: #fff;
-  color: #000;
-  font-size: 16px;
-  line-height: 1.5;
+// const View = styled(motion.div)`
+//   background: #fff;
+//   color: #000;
+//   font-size: 16px;
+//   line-height: 1.5;
 
-  & strong {
-    display: block;
-  }
+//   & strong {
+//     display: block;
+//   }
 
-  & * {
-    box-sizing: border-box;
-  }
-`;
+//   & * {
+//     box-sizing: border-box;
+//   }
+// `;
 
-const Button = styled.button`
-  background: #fff;
-  border: 1px solid #000;
-  border-radius: 24px;
-  padding: 8px 16px;
-`;
+// const Button = styled.button`
+//   background: #fff;
+//   border: 1px solid #000;
+//   border-radius: 24px;
+//   padding: 8px 16px;
+// `;
 
-const animateProps = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  exit: { opacity: 0 },
-  transition: { duration: 0.25 },
-};
+// const animateProps = {
+//   initial: { opacity: 0 },
+//   animate: { opacity: 1 },
+//   exit: { opacity: 0 },
+//   transition: { duration: 0.25 },
+// };
+
+
+
+const Container = styled.div`
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
 
 
 const endpoint = '//next.local.tnw.dev/next-api/tickets.json';
@@ -80,23 +87,22 @@ function App() {
           setLoading(false)
           } catch (e) {
           console.warn(e);
-          // what errors?
+          setError(e => error)
         } 
       })();
-    }, [setData, setLoading]);
+    }, [setData, setLoading, error, setError]);
   
   useEffect(() => fetchData(), [fetchData]);
 
   return (
-    <div className="App">
-      {loading ? <LoaderIcon /> :
-      <TicketContextProvider data={data} >
-          <Tabs color="red" />
-          <Blort />
-      </TicketContextProvider>
-      }
-    </div>
-  );
+      <Container>
+          {loading ? <LoaderIcon /> :
+          <TicketContextProvider data={data} className="o-wrapper interstatialTickets">
+              <Tabs color="black" />
+          </TicketContextProvider>
+          }
+      </Container>
+    );
 }
 
 export default App;

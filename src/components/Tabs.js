@@ -1,10 +1,20 @@
-import React, { useContext, useState } from "react";
-
+import React, { useContext } from "react";
 import { TicketContext } from '../contexts/TicketContext';
 import TabTitle from './TabTitle';
 import TabPanel from './TabPanel';
 
-const Tabs = () => {
+
+import styled from 'styled-components';
+
+const Container = styled.div`
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+
+const Tabs = (props) => {
 
     const context = useContext(TicketContext);
     const data = context[0].data;
@@ -14,7 +24,7 @@ const Tabs = () => {
     if(data){
         titleOutput = data.slice(0).reverse().map((d, i) => {
             return(
-                <TabTitle key={i} data={d} color="red" idx={i} />
+                <TabTitle key={i} data={d} color={props.color} idx={i} />
             )
         });
 
@@ -27,24 +37,18 @@ const Tabs = () => {
     };
     
     return (
-        <>
-        <div className="flex flex-wrap">
-            <div className="w-full">
-                <ul
-                    className="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row"
-                    role="tablist"
-                >
+        <Container>
+            <div className="flex flex-wrap flex-col">
+                <ul className="flex mb-0 list-none pt-3 pb-4 mx-auto">
                     {titleOutput}
                 </ul>
-                <div className="container my-12 mx-auto px-4 md:px-12">
+                <div className="container my-12 mx-auto">
                     <div className="tab-content tab-space">
-                        
                         {panelOutput}
                     </div>
                 </div>
             </div>
-        </div>
-    </>
+        </Container>
     );
 };
 
