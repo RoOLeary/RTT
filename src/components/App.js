@@ -98,7 +98,7 @@ function App() {
       <Container>
           {loading ? <LoaderIcon /> :
           <TicketContextProvider data={data} className="o-wrapper interstatialTickets">
-              <Tabs color="black" />
+              <Tabs color="teal" />
           </TicketContextProvider>
           }
       </Container>

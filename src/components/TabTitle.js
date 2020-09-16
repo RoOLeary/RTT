@@ -13,7 +13,7 @@ const TabTitle = (props) => {
         <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
             <a
                 className={
-                "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
+                "text-xs font-bold uppercase px-5 py-3 shadow-lg block leading-normal " +
                 (context[1].openTab === props.idx+1
                     ? "text-white bg-" + color
                     : "text-" + color + "-600 bg-white")

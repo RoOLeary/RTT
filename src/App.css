@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+li.c-couch-shop__perk:nth-child(odd) {
+  background: #f5f6f7;
+}
+
+li.c-couch-shop__perk:nth-child(even) {
+  background: #fff;
+}
+
+.bg-teal{
+  background-color: #0CC;
+}
