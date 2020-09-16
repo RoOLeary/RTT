@@ -95,13 +95,13 @@ function App() {
   useEffect(() => fetchData(), [fetchData]);
 
   return (
-      <Container>
+      <div>
           {loading ? <LoaderIcon /> :
           <TicketContextProvider data={data} className="o-wrapper interstatialTickets">
               <Tabs color="teal" />
           </TicketContextProvider>
           }
-      </Container>
+      </div>
     );
 }
 
