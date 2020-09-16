@@ -389,7 +389,7 @@ module.exports = function(webpackEnv) {
                 cacheDirectory: true,
                 presets: [
                   "react-app"
-                ]
+                ],
                 // See #6846 for context on why cacheCompression is disabled
                 cacheCompression: false,
                 compact: isEnvProduction,

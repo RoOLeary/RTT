@@ -1,9 +1,9 @@
-import React, { Fragment, useEffect, useCallback, useState } from 'react';
+import React, { useEffect, useCallback, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 
 import '../App.css';
 import { TicketContextProvider } from '../contexts/TicketContext';
-// import { Loader } from './icons';
+import { Loader } from './icons';
 import Tabs from './Tabs';
 
 import '../tailwind.output.css';
@@ -52,6 +52,13 @@ const spin = keyframes`
 // };
 
 
+const LoaderIcon = styled(Loader)`
+  display: block;
+  margin: 0 auto;
+  width: 48px;
+  animation: ${spin} 1s infinite ease-in-out;
+`;
+
 
 const Container = styled.div`
   display: flex;
@@ -88,14 +95,14 @@ function App() {
   useEffect(() => fetchData(), [fetchData]);
 
   return (
-      <Fragment>
-        {loading ? "LOADING" :
+      <>
+        {loading ? <LoaderIcon /> :
         <TicketContextProvider data={data} className="o-wrapper interstatialTickets">
             <Tabs color="teal" />
         </TicketContextProvider>
         }
-      </Fragment>
-    );
+      </>
+  );
 }
 
 export default App;
